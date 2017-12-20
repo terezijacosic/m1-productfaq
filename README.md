@@ -2,12 +2,12 @@
 
 Transition from M2 to M1.
 
-#Frontend 
+# Frontend 
 
 Account -> My Account -> My Product Questions 
 
 *any product page* -> *product info* -> FAQ 
 
-#Admin
+# Admin
 
 Catalog -> FAQ 
