@@ -1,0 +1,27 @@
+<div class="page-title">
+    <h1><?php echo $this->__('My Product Questions') ?></h1>
+</div>
+
+<?php if ($this->getCollection() && $this->count()): ?>
+    <?php echo $this->getToolbarHtml() ?>
+    <table class="data-table" id="my-reviews-table">
+        <tbody>
+        <?php foreach ($this->getCollection() as $_question): ?>
+            <tr>
+                <td><span class="nobr"><?php echo $this->dateFormat($_question->getCreatedAt()) ?></span></td>
+                <td><h2 class="product-name">
+                        <a href="<?php echo $this->getProductLink() ?>id/<?php echo $_question->getProductId() ?>"><?php echo $this->escapeHtml($this->getProductName($_question->getProductId())) ?></a>
+                    </h2></td>
+                <td>
+                <td><?php echo $_question->getQuestion() ?></td>
+                <td><?php echo $_question->getAnswer() ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <script type="text/javascript">decorateTable('my-reviews-table')</script>
+    <?php echo $this->getToolbarHtml() ?>
+<?php else: ?>
+    <p><?php echo $this->__('No questions for this product.') ?></p>
+<?php endif; ?>
+

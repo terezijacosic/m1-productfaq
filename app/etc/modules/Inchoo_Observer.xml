@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Inchoo_Observer>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Inchoo_Observer>
+    </modules>
+</config>

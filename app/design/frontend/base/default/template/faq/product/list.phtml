@@ -1,0 +1,42 @@
+<?php $_items = $this->getCollection()->getItems(); ?>
+    <div class="box-collateral box-reviews" id="customer-reviews">
+        <?php if (count($_items)): ?>
+            <h2><?php echo $this->__('Customer Questions About Product') ?></h2>
+            <?php echo $this->getChildHtml('toolbar') ?>
+            <dl>
+                <?php foreach ($_items as $_question): ?>
+                    <dt><br>
+                        <?php echo $_question->getQuestion() ?>
+                        <small class="date"><?php echo $this->__('(Asked on %s)', $this->formatDate($_question->getCreatedAt()), 'long') ?></small>
+                    </dt>
+                    <dd>
+                        <?php echo nl2br($this->escapeHtml($_question->getAnswer())) ?>
+                    </dd>
+                <?php endforeach; ?>
+            </dl>
+            <?php echo $this->getChildHtml('toolbar') ?>
+        <?php else: ?>
+            <?php echo $this->__('No questions for this product so far.') ?>
+        <?php endif; ?>
+    </div>
+
+    <br>
+
+<?php if ($this->isCustomerLoggedIn()): ?>
+    <div class="form-add">
+        <form action="<?php echo $this->getAction() ?>" method="post" id="new-product-question-form">
+            <?php echo $this->getBlockHtml('formkey'); ?>
+            <ul class="form-list">
+                <li>
+                    <label for="summary_field" class="required"><em>*</em><?php echo $this->__('Your question') ?>
+                    </label>
+                    <div class="input-box">
+                        <input type="text" name="question_text" id="question_text" class="input-text required-entry"/>
+                    </div>
+                </li>
+            </ul>
+            <button type="submit" title="<?php echo $this->__('Submit Question') ?>" class="button">
+                <span><span><?php echo $this->__('Submit Question') ?></span></span></button>
+        </form>
+    </div>
+<?php endif;

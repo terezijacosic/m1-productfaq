@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    <!--link for My Product Questions in My Account items-->
+    <customer_account>
+        <!-- Inchoo_Faq -->
+        <reference name="customer_account_navigation">
+            <action method="addLink">
+                <name>inchoo_faq</name>
+                <path>questions/index</path>
+                <label>My Product Questions</label>
+            </action>
+        </reference>
+
+    </customer_account>
+
+    <!--My Account Questions page-->
+    <inchoo_faq_router_index_index>
+        <label>Customer My Account Product Questions</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="inchoo_faq/customer_list" name="inchoo_faq_customer_account_questions"
+                   template="faq/customer/list.phtml"/>
+        </reference>
+    </inchoo_faq_router_index_index>
+
+    <!--Product Page FAQ Tab-->
+    <catalog_product_view>
+        <reference name="product.info">
+            <block type="inchoo_faq/product_list" name="product_details" template="faq/product/list.phtml">
+                <action method="addToParentGroup">
+                    <group>detailed_info</group>
+                </action>
+                <action method="setTitle" translate="value">
+                    <value>FAQ</value>
+                </action>
+            </block>
+        </reference>
+    </catalog_product_view>
+
+
+</layout>

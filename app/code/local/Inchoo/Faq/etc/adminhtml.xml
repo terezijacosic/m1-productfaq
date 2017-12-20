@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<config>
+    <menu>
+        <catalog>
+            <children>
+                <inchoo_faq translate="title" module="inchoo_faq">
+                    <title>FAQ</title>
+                    <sort_order>60</sort_order>
+                    <action>adminhtml/faq/index</action>
+                </inchoo_faq>
+            </children>
+        </catalog>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <catalog>
+                        <inchoo_faq translate="title" module="inchoo_faq">
+                            <title>FAQ</title>
+                            <sort_order>60</sort_order>
+                        </inchoo_faq>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

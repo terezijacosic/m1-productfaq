@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Inchoo_Observer>
+            <version>0.1.0</version>
+        </Inchoo_Observer>
+    </modules>
+    <global>
+        <models>
+            <inchoo_observer>
+                <class>Inchoo_Observer_Model</class>
+            </inchoo_observer>
+        </models>
+        <template>
+            <email>
+                <inchoo_faq_submitted_email_template translate="label" >
+                    <label>Inchoo FAQ submitted Email</label>
+                    <file>inchoo_faq_submitted.html</file>
+                    <type>html</type>
+                </inchoo_faq_submitted_email_template>
+            </email>
+        </template>
+        <helpers>
+            <inchoo_observer>
+                <class>Inchoo_Observer_Helper</class>
+            </inchoo_observer>
+        </helpers>
+    </global>
+    <frontend>
+        <events>
+            <inchoo_faq_save_question>
+                <observers>
+                    <inchoo_observer_intercept>
+                        <class>inchoo_observer/observer</class>
+                        <method>intercept</method>
+                    </inchoo_observer_intercept>
+                </observers>
+            </inchoo_faq_save_question>
+        </events>
+    </frontend>
+</config>

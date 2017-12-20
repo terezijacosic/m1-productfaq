@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Inchoo_HelloWorld>
+            <version>0.1.0</version>
+        </Inchoo_HelloWorld>
+    </modules>
+    <frontend>
+        <routers>
+            <Inchoo_HelloWorld_InchooHelloRouter>
+                <use>standard</use>
+                <args>
+                    <module>Inchoo_HelloWorld</module>
+                    <frontName>helloworld</frontName>
+                </args>
+            </Inchoo_HelloWorld_InchooHelloRouter>
+        </routers>
+    </frontend>
+</config>
